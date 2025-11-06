@@ -26,6 +26,7 @@ jobs:
                             { keywords: ["feat", "feature", "enhancement", "improve"], label: "implementation", color: "0e8a16" },
                             { keywords: ["doc", "documentation", "readme"], label: "documentation", color: "0366d6" },
                             { keywords: ["question", "help"], label: "question", color: "fbca04" }
+                        ];
 
                         let labelsToAdd = new Set();
                         for (const m of mapping) {
