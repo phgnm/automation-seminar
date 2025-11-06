@@ -1,0 +1,19 @@
+name: Hello Github Actions
+
+on:
+    push:
+        branches: [ feat/setup-workflows, main ]
+
+jobs:
+    hello:
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Checkout repository
+                uses: actions/checkout@v4
+
+            -   name: Show hello + runner info
+                run: |
+                    echo "Hello from GitHub Actions!"
+                    echo "Run ID: $GITHUB_RUN_ID"
+                    echo "Event name: $GITHUB_EVENT_NAME"
+                    uname -a
