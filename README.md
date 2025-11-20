@@ -21,3 +21,5 @@ Output: Posts a thank you comment on the first Pull Request of a new user.
 Trigger: schedule (every Monday at 8:00) or workflow_dispatch  
 Purpose: Clean up stale issues that have been inactive for 30 days.  
 Output: Adds 'stale' label to inactive issues and closes them after 7 days if no update.
+
+## Fix Readme to test workflow
