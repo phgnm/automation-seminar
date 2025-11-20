@@ -1,0 +1,25 @@
+name: Weekly Maintenance
+
+on:
+  # Chạy định kỳ
+  schedule:
+    - cron: '0 8 * * 1' # Chạy vào 8:00 sáng thứ Hai hàng tuần
+  # Cho phép chạy thủ công để test ngay lúc demo
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  clean-stale-issues:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Close stale issues
+        uses: actions/stale@v9
+        with:
+          days-before-stale: 30       # 30 ngày không hoạt động thì đánh dấu cũ
+          days-before-close: 7        # Sau 7 ngày nữa không ai trả lời thì đóng
+          stale-issue-message: 'Issue này đã không hoạt động trong 30 ngày qua. Nó sẽ bị đóng trong 7 ngày tới nếu không có bình luận mới.'
+          stale-issue-label: 'stale'
+          close-issue-message: 'Đã đóng issue do không hoạt động.'
