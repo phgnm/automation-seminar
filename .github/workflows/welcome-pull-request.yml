@@ -5,25 +5,27 @@ on:
     types: [opened]
 
 permissions:
-  pull-requests: write
-  issues: write # Thêm quyền issues để an toàn nếu action check quyền
+  pull-requests: write # Bắt buộc để comment
 
 jobs:
   welcome:
     runs-on: ubuntu-latest
     steps:
-      - name: Welcome First-time Contributor
-        uses: actions/first-interaction@v3
+      # --- CÁCH DEMO: Dùng script này để ép buộc comment ---
+      - name: Force Welcome Comment (Demo Mode)
+        uses: actions/github-script@v6
         with:
-          
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          
-          # Nội dung comment cho PR
-          pr_message: |
-            Xin chào! Cảm ơn bạn đã gửi Pull Request đầu tiên cho dự án.
+          script: |
+            // Lấy thông tin người tạo PR
+            const user = context.payload.pull_request.user.login;
             
+            // Nội dung tin nhắn (giả lập tin nhắn của first-interaction)
+            const message = ` Xin chào @${user}! Cảm ơn bạn đã gửi Pull Request đầu tiên cho dự án.`;
 
-          
-          # SỬA LỖI: Action yêu cầu phải có cả issue_message 
-          issue_message: |
-            Chào mừng bạn đến với dự án! Cảm ơn bạn đã mở Issue đầu tiên.
+            // Gọi API tạo comment
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: message
+            });

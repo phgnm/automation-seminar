@@ -18,8 +18,9 @@ jobs:
       - name: Close stale issues
         uses: actions/stale@v9
         with:
-          days-before-stale: 0       # 30 ngày không hoạt động thì đánh dấu cũ
-          days-before-close: 0       # Sau 7 ngày nữa không ai trả lời thì đóng
-          stale-issue-message: 'Issue này đã không hoạt động trong 30 ngày qua. Nó sẽ bị đóng trong 7 ngày tới nếu không có bình luận mới.'
-          stale-issue-label: 'stale'
-          close-issue-message: 'Đã đóng issue do không hoạt động.'
+          # THAY ĐỔI Ở ĐÂY:
+          days-before-stale: 0       # Sửa 30 thành 0 (Tức là cũ ngay lập tức)
+          days-before-close: 0       # Sửa 7 thành 0 (Đóng ngay lập tức sau khi đánh dấu)
+          
+          stale-issue-message: 'Demo: Issue này bị đánh dấu cũ!'
+          close-issue-message: 'Demo: Đã đóng issue ngay lập tức.'
