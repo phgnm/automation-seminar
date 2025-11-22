@@ -11,7 +11,7 @@ jobs:
   welcome:
     runs-on: ubuntu-latest
     steps:
-      # --- CÁCH DEMO: Dùng script này để ép buộc comment ---
+      # ---  DEMO: Dùng script này để ép buộc comment ---
       - name: Force Welcome Comment (Demo Mode)
         uses: actions/github-script@v6
         with:
