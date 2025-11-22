@@ -20,7 +20,7 @@ jobs:
             const user = context.payload.pull_request.user.login;
             
             // Nội dung tin nhắn (giả lập tin nhắn của first-interaction)
-            const message = `Xin chào @${user}! Cảm ơn bạn đã gửi Pull Request đầu tiên cho dự án.\n\n(Đây là Demo: Bot sẽ luôn chào dù bạn là người cũ)`;
+            const message = `Xin chào @${user}! Cảm ơn bạn đã gửi Pull Request đầu tiên cho dự án.;
 
             // Gọi API tạo comment
             await github.rest.issues.createComment({
