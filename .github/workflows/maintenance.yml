@@ -18,7 +18,7 @@ jobs:
       - name: Close stale issues
         uses: actions/stale@v9
         with:
-         
+          # THAY ĐỔI Ở ĐÂY:
           days-before-stale: 0       # Sửa 30 thành 0 (Tức là cũ ngay lập tức)
           days-before-close: 0       # Sửa 7 thành 0 (Đóng ngay lập tức sau khi đánh dấu)
           
