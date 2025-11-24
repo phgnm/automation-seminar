@@ -2,7 +2,7 @@ name: Hello Github Actions
 
 on:
     push:
-        branches: [ feat/setup-workflows, main ]
+        branches: [ main ]
 
 jobs:
     hello:
